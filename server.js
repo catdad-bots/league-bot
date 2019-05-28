@@ -1,13 +1,12 @@
 // server.js
 // where your node app starts
 
-// Add bot to server: https://discordapp.com/oauth2/authorize?client_id=579382058816634880&scope=bot&permissions=268576768
+// https://discordapp.com/oauth2/authorize?client_id=579382058816634880&scope=bot&permissions=268576768
 
-
-const Discord = require('discord.js')
-const client = new Discord.Client()
+const GuildDb = require('./dbs/guild_db.js')
+const Discord = require('discord.js');
+const client = new Discord.Client();
 const commands = require('./commands.js')
-const GuildDb = require('./guild_db.js')
 
 const AWS = require('aws-sdk')
 const S3 = new AWS.S3({region: 'us-east-1', params: {Bucket: process.env.S3_BUCKET}})
@@ -19,7 +18,7 @@ async function initGuildDb(guild, s3) {
   return await db.init()
 }
 
-async function persistAll(dbList) {
+async function persistAllDbs(dbList) {
   console.log('persisting', Object.keys(dbList))
 }
 
@@ -48,9 +47,11 @@ client.on('message', async msg => {
 async function main() {
   client.login(process.env.DISCORD_TOKEN)
   
+  client.user.setPresence
+  
   // setInterval(() => {
-  //   dbUtils.persistAll(guildDbs)
-  // }, 1000)
+  //   persistAllDbs(guildDbs)
+  // }, 10000)
 }
 
 
