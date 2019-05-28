@@ -3,7 +3,7 @@
 
 // https://discordapp.com/oauth2/authorize?client_id=579382058816634880&scope=bot&permissions=268576768
 
-const GuildDb = require('./dbs/guild_db.js')
+const GuildDb = require('./lib/db/guild_db.js')
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const commands = require('./commands.js')
@@ -22,9 +22,9 @@ async function persistAllDbs(dbList) {
   console.log('persisting', Object.keys(dbList))
 }
 
-
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
+  client.user.setPresence({game: {name: 'league management'}, status: 'online'})
 });
 
 client.on('message', async msg => {
@@ -34,7 +34,7 @@ client.on('message', async msg => {
     let cmdInfo = commands.parseToCommand(line)
     if (!cmdInfo) return false
 
-    console.log(`Processing command in ${msg.guild.id}`)
+    console.log(`Processing command in  Guild ${msg.guild.id}`)
     console.log("retrieving guild DB")
     // if the command is recognized, ensure we have the guild DB available
     if (!guildDbs[msg.guild.id]) guildDbs[msg.guild.id] = await initGuildDb(msg.guild, S3)
@@ -43,19 +43,13 @@ client.on('message', async msg => {
   }
 })
 
-
 async function main() {
-  client.login(process.env.DISCORD_TOKEN)
+  await client.login(process.env.DISCORD_TOKEN)
   
-  client.user.setPresence
-  
-  // setInterval(() => {
-  //   persistAllDbs(guildDbs)
-  // }, 10000)
+//   setInterval(() => {
+//     persistAllDbs(guildDbs)
+//   }, (5*60*1000)) // sync every 5 minutes
 }
 
 
-
-
 main()
-

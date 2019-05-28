@@ -8,10 +8,10 @@ function registerCommand(path, as) {
   commands[as] = cmd.run.bind(cmd)
 }
 
-registerCommand('./lib/scorereport_command', 'scorereport')
-registerCommand('./lib/roster_command', 'roster')
-registerCommand('./lib/scorebot_command', 'scorebot')
-registerCommand('./lib/teams_command', 'teams')
+registerCommand('./lib/commands/scorereport_command', 'scorereport')
+registerCommand('./lib/commands/roster_command', 'roster')
+registerCommand('./lib/commands/scorebot_command', 'scorebot')
+registerCommand('./lib/commands/teams_command', 'teams')
 
 module.exports.getCommand = (cmd, args) => {
   if (!commands[cmd.slice(1)]) return false
