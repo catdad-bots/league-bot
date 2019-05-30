@@ -17,7 +17,8 @@
     "rxjs": "^6.5.2",
     "cuid": "^2.1.6",
     "request-promise": "^4.2.4",
-    "aws-sdk": "^2.456.0"
+    "aws-sdk": "^2.456.0",
+    "lru-cache": "^5.1.1"
   },
   "engines": {
     "node": "8.x"

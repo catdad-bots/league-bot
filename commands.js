@@ -3,15 +3,18 @@ const Discord = require('discord.js');
 
 const commands = {}
 
-function registerCommand(path, as) {
-  let cmd = new (require(path))()
+function registerCommand(leaguebot_db, path, as) {
+  let cmd = new (require(path))(leaguebot_db)
   commands[as] = cmd.run.bind(cmd)
 }
 
-registerCommand('./lib/commands/scorereport_command', 'scorereport')
-registerCommand('./lib/commands/roster_command', 'roster')
-registerCommand('./lib/commands/scorebot_command', 'scorebot')
-registerCommand('./lib/commands/teams_command', 'teams')
+module.exports.init = (leaguebot_db) => {
+  registerCommand(leaguebot_db, './lib/commands/scorereport_command', 'scorereport')
+  registerCommand(leaguebot_db, './lib/commands/rosters_command', 'rosters')
+  registerCommand(leaguebot_db, './lib/commands/leaguebot_command', 'leaguebot')
+  registerCommand(leaguebot_db, './lib/commands/teams_command', 'teams')
+  registerCommand(leaguebot_db, './lib/commands/divisions_command', 'divisions')
+}
 
 module.exports.getCommand = (cmd, args) => {
   if (!commands[cmd.slice(1)]) return false
@@ -25,6 +28,9 @@ module.exports.parseToCommand = content => {
   return module.exports.getCommand(cmd, parts)
 } 
 
+module.exports.applyUserScopes = async (cmdInfo, msg, guildDb) => {
+  
+}
 
 // Some earlier tinkering around auto role setting stuff
 // -----------------
