@@ -1,0 +1,9 @@
+```css
+[ !leaguebot adminscope <comma>, <separated>, <list>, <of>, <roles> ]
+```
+Adds a role or roles to the Admin Scope.
+  
+The Admin Scope indicates users who can run all LeagueBot commands, including those to change the bot's configuration or directly manipulate the league's database. By default, any administrator in your Discord server automatically can act as a LeagueBot Admin, so setting up  the Admin Scope is optional.
+
+Example:
+  `!leaugebot adminscope @BotLeaders, @Cool People Team`

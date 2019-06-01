@@ -1,0 +1,9 @@
+```css
+[ !leaguebot managementscope <comma>, <separated>, <list>, <of>, <roles> ]
+```
+Adds a role or roles to the Management Scope.
+  
+The Management Scope indicates users who can do things like add scores to the database, create team records, and update rosters.
+
+Example:
+  `!leaguebot managementscope @Staff, Role That Does Not Allow Direct Mentions`

@@ -1,0 +1,4 @@
+```css
+[ !leaguebot persist ]
+```
+Forces the league's internal database to be backed up. Backups happen automatically every 5 minutes.

@@ -46,11 +46,8 @@ client.on('message', async msg => {
     let cmdInfo = commands.parseToCommand(line)
     if (!cmdInfo) return false
 
-    console.log(`Processing command in  Guild ${msg.guild.id}`)
-    console.log("retrieving guild DB")
-    // if the command is recognized, ensure we have the guild DB available
-    // TODO: don't run this setup before we've figured out the command - Link Command, for example, 
-    // Is required to even set up the guild DB link
+    console.log(`Processing ${cmdInfo.command} in Guild ${msg.guild.id}`)
+
     let guildDb;
     if (cmdInfo.command == '!leaguebot' && (['help', 'configure', 'link'].indexOf(cmdInfo.arguments[0]) > -1)) {
       guildDb = {}
@@ -63,7 +60,7 @@ client.on('message', async msg => {
         return await msg.channel.send(e) // tell people the DB needs to be setup !
       }
     }
-    console.log(`executing ${cmdInfo.command}`)
+    
     try {
       await cmdInfo.handler(cmdInfo, msg, guildDb)
     } catch (e) {

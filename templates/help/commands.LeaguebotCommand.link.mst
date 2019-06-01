@@ -1,0 +1,13 @@
+```css
+[ !leaguebot link <link_type or link_id> ]
+```
+Initiates or confirms a link between a league's admin server and player server.
+  
+When initiating a link, the link type should be passed, indicating which server the command is being initiated from:  
+  `!leaguebot link admin`
+
+Or:
+  `!leaguebot link player`
+
+Once a link is initiated, it can only be confirmed by running the provided link command in the other server. If you initiated the link from the admin server, you must confirm it in the player server and vice versa.
+  `!leaguebot link cjw9cr6hs0003kirwbj5u1hfa`
