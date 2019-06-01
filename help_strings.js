@@ -69,6 +69,7 @@ function render (type, string, ...args) {
     try {
       output = mustache.render(fs.readFileSync(`./templates/${type}/${string}.mst`, 'utf-8'), ...args)
     } catch (e) {
+      console.log(e)
       return "No helpfile found"
     }
   }

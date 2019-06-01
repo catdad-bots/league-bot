@@ -1,0 +1,11 @@
+```css
+[ !teams add <shortname> <longer team name> ]
+```
+Adds a Team. Teams are needed for score reporting and roster transactions
+
+Takes 2 arguments:
+  - A Shortname (no spaces) which will be used for score reporting and anywhere else the team is referenced.
+  - A Longer, formal name. Spaces are allowed.
+  
+Example:
+  `!teams add AA Team A`
