@@ -3,6 +3,7 @@ dependencies:
   cuid: 2.1.6
   discord.js: 11.5.0
   lru-cache: 5.1.1
+  mustache: 3.0.1
   pouchdb-adapter-memory: 7.0.0
   request-promise: 4.2.4
   rxdb: 8.1.0
@@ -3403,6 +3404,13 @@ packages:
       node: '>= 0.10'
     resolution:
       integrity: sha512-AvESCnNoQlZiOfP9R4mxN8M9csy2L16EIbWIkt3l4FuGti9kXBS8QVzlfyg4HEnarJhrzZilgNFlZtqmoiAIIA==
+  /mustache/3.0.1:
+    dev: false
+    engines:
+      npm: '>=1.4.0'
+    hasBin: true
+    resolution:
+      integrity: sha512-jFI/4UVRsRYdUbuDTKT7KzfOp7FiD5WzYmmwNwXyUVypC0xjoTL78Fqc0jHUPIvvGD+6DQSPHIt1NE7D1ArsqA==
   /nan-x/1.0.2:
     dev: false
     resolution:
@@ -5852,6 +5860,7 @@ specifiers:
   cuid: ^2.1.6
   discord.js: ^11.5.0
   lru-cache: ^5.1.1
+  mustache: ^3.0.1
   pouchdb-adapter-memory: ^7.0.0
   request-promise: ^4.2.4
   rxdb: ^8.1.0

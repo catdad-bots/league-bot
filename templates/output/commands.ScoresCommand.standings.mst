@@ -1,0 +1,6 @@
+```css
+Team      W     L     MW-ML-MD  Diff
+{{#standings}}
+{{team}}  {{wins}}  {{losses}}  {{map_wins}} {{map_losses}} {{map_draws}}  [{{diff}}]
+{{/standings}}
+```

@@ -1,47 +1,10 @@
-function wrapcode(str, format='css') {
-  return "```" + format + "\n" + str + "\n```"
-}
+const mustache = require('mustache')
+const fs = require('fs')
 
-let help_strings = {
-   "error": (msg, err) => {
-    return `
-There was an error in the command you sent to LeagueBot in ${msg.guild.name} : 
-
-${err}
-`
-  },
-  "commands.LeaguebotCommand.help": wrapcode(`
-hi
-`),
-  "commands.RostersCommand.request": wrapcode(`
-[ !rosters request <team_shortcode> <player> <role> <discord_handle> <btag> ]
-
-  Sends a request to staff to pick up a player.
-
-  Takes 5 arguments:
-    - Team shortcode
-    - Player nickname
-    - Player role (Support, DPS, Tank, Flex)
-    - Player discord handle
-    - Player battletag, with exact capitalization
-
-  Example:
-    !roster request 7S someguy Support someguys_discord#5555 SomeGuyBtag#11111
-`),
-  "commands.ScorereportCommand.add": wrapcode(`
-[ !scorereport add <team_a_shortcode> <win>-<lose>-<draw> <team_b_shortcode> ]
-
-  Adds a match score to the record.
-
-  Takes 3 arguments:
-    - A team's shortcode ("team A")
-    - A dash-separated series of map scores in the order of: team A's wins, team B's wins, draws
-    - A team's shortcode ("team B")
-
-  Example:
-    !scorereport add AA 3-0-1 BB
-`),
-  "commands.LeaguebotCommand.configure": [ 
+let overrides = {
+  help: {
+    "commands.LeaguebotCommand.configure": () => {
+      return [ 
 `
 Welcome to LeagueBot! Leaguebot will let you administer your Overwatch league all from the comfort of your Discord server. This command will guide you through setting up LeagueBot so you can play more and manage spreadsheets less.
 `,
@@ -91,14 +54,35 @@ Only set this if you want to require some basic role before server members can r
 !leaguebot everyonescope @Players
 \`\`\`
 `]
+    }
+  },
+  output: {}
 }
 
 
-module.exports = (help_string, ...args) =>{
-  let hs = help_strings[help_string]
-  
-  if (!hs) return `Unknown Helpstring requested: ${help_string}`
-    
-  if (typeof hs != "function") return hs
-  return hs.apply(hs, args)
+function render (type, string, ...args) {
+  let output;
+  let hs = overrides[type][string]
+  if (hs) { 
+    output = overrides[type][string](...args)
+  } else {
+    try {
+      output = mustache.render(fs.readFileSync(`./templates/${type}/${string}.mst`, 'utf-8'), ...args)
+    } catch (e) {
+      return "No helpfile found"
+    }
+  }
+  if (typeof output == 'sting') {
+    output = output.split('<hr />')
+  }
+  return output
+}
+
+module.exports = {
+  renderHelp: (help_string, view) => {
+    return render('help', help_string, view)
+  },
+  renderOutput: (string, view) => {
+    return render('output', string, view)
+  }
 }

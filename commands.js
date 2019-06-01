@@ -9,11 +9,11 @@ function registerCommand(leaguebot_db, path, as) {
 }
 
 module.exports.init = (leaguebot_db) => {
-  registerCommand(leaguebot_db, './lib/commands/scorereport_command', 'scorereport')
-  registerCommand(leaguebot_db, './lib/commands/rosters_command', 'rosters')
+  registerCommand(leaguebot_db, './lib/commands/scores_command', 'scores')
+  // registerCommand(leaguebot_db, './lib/commands/rosters_command', 'rosters')
   registerCommand(leaguebot_db, './lib/commands/leaguebot_command', 'leaguebot')
-  registerCommand(leaguebot_db, './lib/commands/teams_command', 'teams')
-  registerCommand(leaguebot_db, './lib/commands/divisions_command', 'divisions')
+  // registerCommand(leaguebot_db, './lib/commands/teams_command', 'teams')
+  // registerCommand(leaguebot_db, './lib/commands/divisions_command', 'divisions')
 }
 
 module.exports.getCommand = (cmd, args) => {

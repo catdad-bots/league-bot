@@ -1,0 +1,15 @@
+```css
+[ !rosters request <team_shortcode> <player> <role> <discord_handle> <btag> ]
+
+  Sends a request to staff to pick up a player.
+
+  Takes 5 arguments:
+    - Team shortcode
+    - Player nickname
+    - Player role (Support, DPS, Tank, Flex)
+    - Player discord handle
+    - Player battletag, with exact capitalization
+
+  Example:
+    !roster request 7S someguy Support someguys_discord#5555 SomeGuyBtag#11111
+```

@@ -1,0 +1,3 @@
+There was an error in the command you sent to LeagueBot in {{msg.guild.name}} : 
+
+{{error}}
