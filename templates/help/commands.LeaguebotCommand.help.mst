@@ -1,0 +1,13 @@
+**Welcome to LeagueBot!**
+
+Leaguebot will let you administer your Overwatch league all from the comfort of your Discord server, so you can play more and manage spreadsheets less.
+
+If you're just setting up LeagueBot, try running `!leaguebot configure`
+
+LeagueBot has the following commands:
+
+• !divisions
+• !teams
+• !scores
+
+Run any of them to see more help on how they work.

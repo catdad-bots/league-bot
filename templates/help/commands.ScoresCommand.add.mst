@@ -1,0 +1,12 @@
+```css
+[ !scores add <team_a_shortcode> <win>-<lose>-<draw> <team_b_shortcode> ]
+```
+Adds a match score to the record.
+
+Takes 3 arguments:
+  - A team's shortcode ("team A")
+  - A dash-separated series of map scores in the order of: team A's wins, team B's wins, draws
+  - A team's shortcode ("team B")
+
+Example:
+  `!scorereport add AA 3-0-1 BB`

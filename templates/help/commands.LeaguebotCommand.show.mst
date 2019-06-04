@@ -1,0 +1,8 @@
+```css
+[ !leaguebot show <table> ]
+```
+Shows the raw data underneath the league internal database. If a table name is included in the command, only that table will be shown.
+  
+Example:
+  `!leaguebot show`
+  `!leaguebot show scores`

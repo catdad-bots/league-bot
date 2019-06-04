@@ -1,0 +1,12 @@
+```css
+[ !divisions add <division_name> <minimum_sr> <maximum_sr> ]
+```
+Adds a Division. Divisions are required for assigning teams and tracking standings.
+
+Takes 3 arguments:
+  - What to call the division. This will be used when managing teams and checking standings. Must not contain spaces
+  - Minimum SR will set the lower bound of SR for the division. Minimum isn't strongly enforced but players who are picked up below the threshold will have their SR rounded up for team average reporting purposes
+  - Maximum SR is a hard cap on player SR and roster transactions for players of higher SRs will be rejected
+  
+Example:
+  `!divisions add Upper 2750 3500`

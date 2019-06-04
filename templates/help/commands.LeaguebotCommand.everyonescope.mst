@@ -1,0 +1,11 @@
+```css
+[ !leaguebot everyonescope <comma>, <separated>, <list>, <of>, <roles> ]
+```
+Adds a role or roles to the Everyone Scope.
+  
+The Everyone Scope indicates which roles (if any in specific are required) can interact with the basic commands of LeagueBot, such as viewing standings and team rosters. By default, no role is required, as every player in your server will be able to run the basic commands. 
+
+Only set this if you want to require some basic role before server members can run commands. For example, if your player server already locks down channel access until users receive a role for accepting server rules, you would set the Everyone Scope in LeagueBot to point at the "rules accepted" role that you use to unlock channels.
+
+Example:
+  `!leaguebot everyonescope @Players`

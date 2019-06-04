@@ -1,0 +1,10 @@
+```css
+[ !leaguebot clear <table> ]
+```
+**WARNING: this action cannot be reversed**
+  
+Forces the league's internal database to be cleared. If a table is included in the command, only that table will be cleared. This command may have unforseen consequences and should only be used to reset the league database if something has been otherwise irrevocably broken.
+  
+Example:
+  `!leaguebot clear`
+  `!leaguebot clear players`

@@ -1,0 +1,9 @@
+```css
+[ !leaguebot repscope <comma>, <separated>, <list>, <of>, <roles> ]
+```
+Adds a role or roles to the Team Rep Scope.
+  
+The Team Rep Scope indicates users who are captains / representatives for their teams and are able to do things such as request roster transactions
+
+Example:
+  `!leaguebot repscope @Team Reps`
