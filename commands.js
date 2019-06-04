@@ -23,7 +23,7 @@ module.exports.getCommand = (cmd, args) => {
 }
 
 module.exports.parseToCommand = content => {
-  let parts = content.split(" ")
+  let parts = content.split(" ").filter(e => e)
   let cmd = parts.shift()
   return module.exports.getCommand(cmd, parts)
 } 
