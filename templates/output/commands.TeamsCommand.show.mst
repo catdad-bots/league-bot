@@ -1,0 +1,6 @@
+```md
+{{division.name}} Division [ {{team.shortname}} ][ {{team.name}} ]
+
+  {{players.length}} members
+  {{avg_current_sr}} average SR
+```

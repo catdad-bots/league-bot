@@ -1,5 +1,14 @@
-const mustache = require('mustache')
+const Handlebars = require('handlebars')
 const fs = require('fs')
+
+Handlebars.registerHelper('padEnd', (field, amount) => {
+  return field.toString().padEnd(amount, " ")
+});
+
+Handlebars.registerHelper('differential', field => {
+  return field > 0 ? '+' + field.toString() : field.toString()
+})
+
 
 let overrides = {
   help: {
@@ -67,7 +76,7 @@ function render (type, string, ...args) {
     output = overrides[type][string](...args)
   } else {
     try {
-      output = mustache.render(fs.readFileSync(`./templates/${type}/${string}.mst`, 'utf-8'), ...args)
+      output = Handlebars.compile(fs.readFileSync(`./templates/${type}/${string}.mst`, 'utf-8'))(...args)
     } catch (e) {
       console.log(e)
       return "No helpfile found"

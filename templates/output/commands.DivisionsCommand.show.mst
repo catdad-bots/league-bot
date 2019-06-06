@@ -1,0 +1,7 @@
+```md
+{{division.name}} Division
+
+{{#teams}}
+  {{padEnd shortname 6}}  {{name}}
+{{/teams}}
+```

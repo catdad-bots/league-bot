@@ -5,7 +5,7 @@
 
 Team      W     L     MW-ML-MD  Diff
 {{#standings}}
-{{team}}  {{wins}}  {{losses}}  {{map_wins}} {{map_losses}} {{map_draws}}  [{{diff}}]
+{{padEnd team 8}}  {{padEnd w 4}}  {{padEnd l 4}}  {{padEnd map_w 2}} {{padEnd map_l 2}} {{padEnd map_d 2}}  [{{differential diff}}]
 {{/standings}}
 ```
 {{/division_standings}}

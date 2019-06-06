@@ -10,16 +10,13 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "sqlite3": "^4.0.0",
     "discord.js": "^11.5.0",
-    "rxdb": "^8.1.0",
-    "pouchdb-adapter-memory": "^7.0.0",
-    "rxjs": "^6.5.2",
     "cuid": "^2.1.6",
     "request-promise": "^4.2.4",
     "aws-sdk": "^2.456.0",
     "lru-cache": "^5.1.1",
-    "mustache": "^3.0.1"
+    "handlebars": "^4.1.2",
+    "request": "^2.88.0"
   },
   "engines": {
     "node": "8.x"
