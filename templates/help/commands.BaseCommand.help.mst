@@ -5,4 +5,4 @@ The command {{command}} has the following sub-commands:
 {{/handlers}}
 
 For more info about a subcommand, run help on it! For example: 
-  `{{command}} help {{handlers.0}}`
+  `{{command}} help {{handlers.[0]}}`
